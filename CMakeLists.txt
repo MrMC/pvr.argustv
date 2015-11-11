@@ -6,18 +6,16 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 
 enable_language(CXX)
 
-find_package(kodi REQUIRED)
-find_package(kodiplatform REQUIRED)
+find_package(mrmc REQUIRED)
+find_package(mrmcplatform REQUIRED)
 find_package(platform REQUIRED)
 
-include_directories(${kodiplatform_INCLUDE_DIRS}
+include_directories(${mrmcplatform_INCLUDE_DIRS}
                     ${platform_INCLUDE_DIRS}
-                    ${KODI_INCLUDE_DIR}
+                    ${MRMC_INCLUDE_DIR}
                     ${PROJECT_SOURCE_DIR}/src)
 
-if(NOT WIN32)
-  add_options(ALL_LANGUAGES ALL_BUILDS "-fPIC")
-endif()
+add_options(ALL_LANGUAGES ALL_BUILDS "-fPIC")
 
 # Source files
 set(ARGUSTV_SOURCES src/activerecording.cpp
@@ -53,15 +51,6 @@ set(ARGUSTV_HEADERS src/activerecording.h
                     src/uri.h
                     src/utils.h)
 source_group("Header Files" FILES ${ARGUSTV_HEADERS})
-
-if(WIN32)
-# Misc files
-set(RESOURCE_FILES pvr.argustv/addon.xml
-                pvr.argustv/changelog.txt
-                pvr.argustv/resources/settings.xml
-                pvr.argustv/resources/language/resource.language.en_gb/strings.po)
-source_group("Resource Files" FILES ${RESOURCE_FILES})
-endif(WIN32)
 
 # Make sure that CMake adds the headers to the MSVC project
 list(APPEND ARGUSTV_SOURCES ${ARGUSTV_HEADERS} ${RESOURCE_FILES})

@@ -1,16 +1,5 @@
 # build artifacts
 build/
-debian/changelog
-debian/files
-debian/kodi-pvr-argustv-dbg.debhelper.log
-debian/kodi-pvr-argustv-dbg.substvars
-debian/kodi-pvr-argustv-dbg/
-debian/kodi-pvr-argustv.debhelper.log
-debian/kodi-pvr-argustv.postinst.debhelper
-debian/kodi-pvr-argustv.postrm.debhelper
-debian/kodi-pvr-argustv.substvars
-debian/kodi-pvr-argustv/
-debian/tmp/
 obj-x86_64-linux-gnu/
 pvr.argustv/addon.xml
 
@@ -21,3 +10,5 @@ pvr.argustv/addon.xml
 .cproject
 .project
 .settings/
+
+.DS_Store
